@@ -6,3 +6,9 @@ endpoints:
       networkVisibility: Public
       context: /
       schemaFilePath: ""
+    - name: default
+      port: 8081
+      type: REST
+      networkVisibility: Public
+      context: /
+      schemaFilePath: ""
