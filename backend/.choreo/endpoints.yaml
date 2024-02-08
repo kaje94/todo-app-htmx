@@ -1,14 +1,8 @@
 version: "0.1"
 endpoints:
-    - name: default
-      port: 8080
+    - name: bs-endpoint
+      port: 1212
       type: REST
-      networkVisibility: Public
-      context: /
-      schemaFilePath: ""
-    - name: default1
-      port: 8081
-      type: REST
-      networkVisibility: Public
+      networkVisibility: Organization
       context: /
       schemaFilePath: ""
