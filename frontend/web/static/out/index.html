@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -9,25 +8,40 @@
     <script src="./scripts/listeners.js"></script>
     <link href="./css/output.css" rel="stylesheet" />
     <title>Go + HTMX + Tailwind</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="flex flex-col mx-auto w-fit max-w-1/2 min-w-1/2">
-        <h1 class="text-4xl text-center">Go + HTMX + Tailwind ToDo</h1>
-        <div id="content-area">
-            <div id="input-area">
-                <form id="create-form" hx-post="/todos" hx-trigger="keyup[keyCode==13]" hx-swap="none">
-                    <input class="rounded my-1 w-full" type="text" name="title" placeholder="Add Todo" />
-                    <input class="rounded my-1 w-full hidden" type="text" name="description"
-                        placeholder="Add description" value="" />
-
-                </form>
-            </div>
-            <div id="todo-list-area" hx-get="/todos" hx-trigger="load, todos-changed from:body">
-
-            </div>
+      <h1 class="text-4xl text-center">Go Todo List App</h1>
+      <div id="content-area">
+        <div id="input-area">
+          <form
+            id="create-form"
+            hx-post="/todos"
+            hx-trigger="keyup[keyCode==13]"
+            hx-swap="none"
+          >
+            <input
+              class="rounded my-1 w-full"
+              type="text"
+              name="title"
+              placeholder="Add Todo"
+            />
+            <input
+              class="rounded my-1 w-full hidden"
+              type="text"
+              name="description"
+              placeholder="Add description"
+              value=""
+            />
+          </form>
         </div>
+        <div
+          id="todo-list-area"
+          hx-get="/todos"
+          hx-trigger="load, todos-changed from:body"
+        ></div>
+      </div>
     </div>
-</body>
-
+  </body>
 </html>
