@@ -28,7 +28,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/Todo"
+              $ref: "#/components/schemas/TodoInput"
       responses:
         "201":
           description: The created todo
@@ -45,7 +45,7 @@ paths:
           in: path
           required: true
           schema:
-            type: string
+            type: integer
       responses:
         "200":
           description: A single todo
@@ -63,14 +63,14 @@ paths:
           in: path
           required: true
           schema:
-            type: string
+            type: integer
       requestBody:
         description: The updated todo
         required: true
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/Todo"
+              $ref: "#/components/schemas/TodoInput"
       responses:
         "200":
           description: The updated todo
@@ -88,7 +88,7 @@ paths:
           in: path
           required: true
           schema:
-            type: string
+            type: integer
       responses:
         "204":
           description: Todo deleted
@@ -102,9 +102,10 @@ components:
       required:
         - id
         - title
+        - status
       properties:
         id:
-          type: string
+          type: integer
           description: The unique identifier for the todo
         title:
           type: string
@@ -112,6 +113,25 @@ components:
         description:
           type: string
           description: The description of the todo
-        completed:
+        status:
           type: boolean
-          description: Whether the todo is completed
+          description: The status of the todo, indicating whether it is completed
+    TodoInput:
+      type: object
+      required:
+        - id
+        - title
+        - status
+      properties:
+        id:
+          type: integer
+          description: The unique identifier for the todo
+        title:
+          type: string
+          description: The title of the todo
+        description:
+          type: string
+          description: The description of the todo
+        status:
+          type: boolean
+          description: The status of the todo, indicating whether it is completed
