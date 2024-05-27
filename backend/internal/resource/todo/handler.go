@@ -52,6 +52,7 @@ func (s *TodoService) GetAll() ([]common.Todo, error) {
 
 func (s *TodoService) GetByID(id int) (common.Todo, error) {
 	fmt.Printf("Calling GET /todos/%d\n", id)
+	fmt.Print("New Log")
 	var todo common.Todo
 
 	row := s.db.QueryRow("SELECT * FROM todos WHERE id = ?", id)
