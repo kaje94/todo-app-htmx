@@ -7,3 +7,16 @@ spec:
       type: REST
       port: 8080
       networkVisibility: Public
+  outbound:
+    serviceReferences:
+      - name: choreo:///kajendranalagaratnam/todolistproject/go-rest/5c69c/v1/PUBLIC
+        connectionConfig: 01ef4f2d-b4f7-1406-96a3-4003a24456fc
+        env:
+          - from: ServiceURL
+            to: SVC_URL
+          - from: ConsumerKey
+            to: CONSUMER_KEY
+          - from: ConsumerSecret
+            to: CONSUMER_SECRET
+          - from: TokenURL
+            to: TOKEN_URL
