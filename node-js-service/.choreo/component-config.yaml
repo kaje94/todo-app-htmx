@@ -1,0 +1,9 @@
+apiVersion: core.choreo.dev/v1beta1
+kind: ComponentConfig
+spec:
+  inbound:
+    - name: node-service-1
+      context: /
+      type: REST
+      port: 8080
+      networkVisibility: Public
