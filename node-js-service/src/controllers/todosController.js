@@ -25,7 +25,7 @@ class TodosController {
           Authorization: `Bearer ${accessToken}`,
         },
       });
-      console.log("response:", response);
+      console.log("response 123:", JSON.stringify(response.data));
 
       res.status(200).json(todos);
     } catch (error) {
