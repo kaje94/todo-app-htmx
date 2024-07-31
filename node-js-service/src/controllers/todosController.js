@@ -1,6 +1,6 @@
 const TodoModel = require("../models/todoModel");
-import oauth from "axios-oauth-client";
-import axios from "axios";
+const oauth = require("axios-oauth-client");
+const axios = require("axios");
 
 const serviceURL = process.env.SVC_URL;
 
