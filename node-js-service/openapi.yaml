@@ -1,0 +1,124 @@
+openapi: 3.0.3
+info:
+  title: Todo API
+  description: API for managing TODO items
+  version: 1.0.0
+paths:
+  /todos:
+    get:
+      summary: Get all TODO items
+      operationId: getAllTodos
+      tags:
+        - Todos
+      responses:
+        "200":
+          description: A list of TODO items
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Todo"
+    post:
+      summary: Create a new TODO item
+      operationId: createTodo
+      tags:
+        - Todos
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Todo"
+      responses:
+        "201":
+          description: Created TODO item
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Todo"
+  /todos/{id}:
+    get:
+      summary: Get a TODO item by ID
+      operationId: getTodoById
+      tags:
+        - Todos
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: A TODO item
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Todo"
+        "404":
+          description: Todo not found
+    put:
+      summary: Update a TODO item by ID
+      operationId: updateTodoById
+      tags:
+        - Todos
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Todo"
+      responses:
+        "200":
+          description: Updated TODO item
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Todo"
+        "404":
+          description: Todo not found
+    delete:
+      summary: Delete a TODO item by ID
+      operationId: deleteTodoById
+      tags:
+        - Todos
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: Todo deleted
+        "404":
+          description: Todo not found
+components:
+  schemas:
+    Todo:
+      type: object
+      required:
+        - title
+      properties:
+        id:
+          type: string
+          example: "1"
+        title:
+          type: string
+          example: "Buy groceries"
+        description:
+          type: string
+          example: "Milk, Bread, Eggs"
+        status:
+          type: string
+          enum:
+            - pending
+            - completed
+          example: "pending"
