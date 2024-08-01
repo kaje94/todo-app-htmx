@@ -6,4 +6,3 @@ spec:
       port: 9090
       type: REST
       networkVisibility: Public
-      context: /abc
