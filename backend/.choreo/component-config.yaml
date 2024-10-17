@@ -1,0 +1,10 @@
+apiVersion: core.choreo.dev/v1beta1
+kind: ComponentConfig
+spec:
+  inbound:
+    - name: backend2
+      context: /
+      type: REST
+      port: 8080
+      networkVisibility: Public
+      schemaFilePath: openapi.yaml

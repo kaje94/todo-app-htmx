@@ -67,7 +67,7 @@ func (s *TodoService) GetByID(id int) (common.Todo, error) {
 }
 
 func (s *TodoService) Create(todo common.Todo) (common.Todo, error) {
-	fmt.Printf("Calling Post /todos title=%s, description=%s\n",todo.Title, todo.Description)
+	fmt.Printf("Calling Post /todos title=%s, description=%s\n", todo.Title, todo.Description)
 
 	result, err := s.db.Exec(
 		"INSERT INTO todos (title, description, status) VALUES (?, ?, ?)",
@@ -115,7 +115,7 @@ func (s *TodoService) Update(todo common.Todo) (common.Todo, error) {
 }
 
 func (s *TodoService) Delete(id int) error {
-	fmt.Sprintf("Calling Delete /todos/%d\n",id)
+	fmt.Sprintf("Calling Delete /todos/%d\n", id)
 	_, err := s.db.Exec("DELETE FROM todos WHERE id = ?", id)
 
 	if err != nil {
