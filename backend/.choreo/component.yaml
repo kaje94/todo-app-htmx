@@ -1,0 +1,11 @@
+schemaVersion: 1.1
+endpoints:
+  - name: dsdsd
+    service:
+      port: 8080
+      basePath: /
+    type: REST
+    displayName: dsdsd
+    networkVisibilities:
+      - Public
+    schemaFilePath: openapi.yaml
